@@ -1,0 +1,74 @@
+/* 
+Project Name: Caesar Cipher
+Coded by: Andy Kawa
+Date: July 23, 2017
+e-MAIL: bl4ckbo7@protonmail.com
+*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+h2, h3, h5{
+	color: green;
+	font-family: Lucida Console;
+	font-weight: bold;
+}
+
+body{
+	background-color: black;
+	/*background-image: url("hackerbg.jpg");*/
+	background-repeat: no-repeat;
+}
+
+#header{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-left: 20px;
+}
+
+#wrapper{
+	float: center;
+	margin: 20px;
+	padding: 20px;
+	border: green solid 2px;
+	border-radius: 10px;
+}
+
+#plaintext{
+	margin: 20px;
+	padding: 20px;
+	border-radius: 15px;
+	outline: none;
+}
+
+#key{
+	margin: 20px;
+	padding: 20px;
+	border-radius: 15px;
+	outline: none;
+}
+
+.button{
+	margin: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background: black;
+	color: green;
+	border-spacing: 20px;
+	border: green solid 2px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 12px 4px green;
+	cursor: pointer;
+	outline: none;
+}
+
+#footer{
+	text-align: center;
+	margin-top: 50px;
+	font-size: 15px;
+}

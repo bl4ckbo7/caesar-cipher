@@ -1,0 +1,105 @@
+<!-- 
+Project Name: Caesar Cipher
+Coded by: Andy Kawa
+Date: July 23, 2017
+e-MAIL: bl4ckbo7@protonmail.com
+-->
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD xhtml 1.0 Transitional//EN"
+"http://www.w3.org/TR/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<link href="css\cc_style.css" rel="stylesheet" type="text/css" >
+	<meta charset="UTF-8" />
+	<title>Caesar Cipher</title>
+</head>
+
+<body>
+
+	<div id="header">
+			<h2><u>CAESAR CIPHER CRYPTOGRAPHY</u></h2>
+	</div>
+
+	<div id="wrapper">
+		  <form id="encryptForm">
+			<table border="0" cellpadding="5" cellspacing="0">
+			  <tr>
+				<td><h3>Plaintext/Ciphertext:</h3></td>
+				<td><textarea id="plaintext" cols="50" rows="10" placeholder="Enter plaintext/ciphertext here"></textarea></td>
+			  </tr>
+			  <tr>
+				<td><h3>Key:</h3></td>
+				<td><input type="text" id="key" placeholder="Key here" style="width:4em" /></td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td>
+						<input type="button" value="Encrypt" class="button" onclick="runEncrypt(false);"/>
+						<input type="button" value="Decrypt" class="button" onclick="runEncrypt(true);"/>
+				</td>
+				<td></td>
+			  </tr>
+			</table>
+		  </form>
+	  </div>
+	  
+	  <script type="text/javascript">
+	  
+		function runEncrypt(isDecrypt){
+			var shift = document.getElementById("key").value;
+			var plaintext = document.getElementById("plaintext").value;
+			
+			if(plaintext.length==0){
+				alert("Plaintext/Ciphertext field cannot be empty!");
+				return;
+		}
+			var key = parseInt(shift, 10);
+			if(key < 0 || key >= 26){
+			alert("Shift is out of range(Range is from 0-26)");
+			return;
+		}
+			if(!/^-?\d+$/.test(shift)){
+				alert("Shift is not an integer (Key must be an Integer!)");
+				return;
+		}
+		
+		if (isDecrypt)
+			key = (26 - key) % 26;
+			var plaintext = document.getElementById("plaintext");
+			plaintext.value = caesarShift(plaintext.value, key);
+		
+	}
+		
+		
+
+		function caesarShift(text, shift) {
+			var ciphertext = "";
+			
+			for (var i = 0; i < text.length; i++){
+				var ch = text.charCodeAt(i);
+				
+				if(65 <= ch && ch <=  90) {
+					ciphertext += String.fromCharCode((ch - 65 + shift) % 26 + 65); // for Uppercase Unicode
+				} 
+				else if(97 <= ch && ch <= 122){
+					ciphertext += String.fromCharCode((ch - 97 + shift) % 26 + 97);  // for Lowercase Unicode
+				}
+				else{
+					ciphertext += text.charAt(i);
+				}
+		}
+		return ciphertext;
+	}  
+	  
+	  </script>
+	  
+	  <div id="footer">
+		<h5>Coded by [ Andy Kawa - bl4ckbo7 ] | &copy2017</h5>	
+	  </div>
+
+</body>
+
+</html>
